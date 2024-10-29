@@ -1,35 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+/*//TODO:
+dir pages
+create 3 pages
+dir components
+create header
+root layout
+import outlet
+  display header
+  display chosen page
+setup router
+import createBrowserRouter, RouterProvider
+create browser router
+create router provider
+create links:
+  import Link(só para navegação interna)
+programmatic nav:
+  create search input
+  use State
+  nav on submit
+  useNavigate
+  Form
+  
+*/
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+  return <div>App</div>;
 }
 
-export default App
+export default App;
