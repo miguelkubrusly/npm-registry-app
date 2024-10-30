@@ -1,9 +1,13 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { fetchPackages } from "../../api/queries/fetchPackages";
 
+type SearchLoaderProps = Promise<{
+  results: PackageSummary[];
+}>;
+
 async function searchLoader({
   request,
-}: LoaderFunctionArgs<Request>): Promise<PackageSummary[]> {
+}: LoaderFunctionArgs<Request>): SearchLoaderProps {
   const { searchParams } = new URL(request.url);
   const term = searchParams.get("term");
   if (!term) {
@@ -21,7 +25,9 @@ async function searchLoader({
       };
     }
   );
-  return summary;
+  return {
+    results: summary,
+  };
 }
 
 export default searchLoader;
