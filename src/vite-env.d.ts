@@ -1,27 +1,14 @@
 /// <reference types="vite/client" />
+import {
+  PackageSummary,
+  Package,
+  PackageSearchResult,
+} from "./api/type/PackageTypes";
 
 declare global {
-  interface Links {
-    npm: string;
-    homepage: string;
-    repository: string;
-    bugs: string;
-  }
-  interface User {
-    username: string;
-    email: string;
-  }
-  interface Package {
-    name: string;
-    scope: string;
-    version: string;
-    description: string;
-    keywords: string[];
-    date: string;
-    links: Links;
-    publisher: User;
-    maintainers: User[];
-  }
+  type PackageSummary = PackageSummary;
+  type Package = Package;
+  type PackageSearchResult = PackageSearchResult;
 }
 
 export {};
