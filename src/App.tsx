@@ -1,18 +1,9 @@
-import {
-  createBrowserRouter,
-  LoaderFunctionArgs,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from "./components/Root";
 import HomePage from "./pages/HomePage";
-import SearchPage from "./pages/SearchPage";
+import SearchPage from "./pages/search/SearchPage";
 import DetailsPage from "./pages/DetailsPage";
-
-interface PackageSearchResult {
-  objects: Package[];
-  time: string;
-  total: number;
-}
+import SearchLoader from "./pages/search/SearchLoader";
 
 const router = createBrowserRouter([
   {
@@ -26,20 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
-        loader: async ({
-          request,
-        }: LoaderFunctionArgs<Request>): Promise<Package[]> => {
-          const { searchParams } = new URL(request.url);
-          const term = searchParams.get("term");
-          if (!term) {
-            throw new Error("Search parameters must be provided.");
-          }
-          const res = await fetch(
-            `https://registry.npmjs.org/-/v1/search?text=${term}`
-          );
-          const data: PackageSearchResult = await res.json();
-          return data.objects;
-        },
+        loader: SearchLoader,
       },
       {
         path: "/packages/:name",
