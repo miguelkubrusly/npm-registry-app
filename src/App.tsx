@@ -3,7 +3,7 @@ import Root from "./components/Root";
 import HomePage from "./pages/HomePage";
 import SearchPage from "./pages/search/SearchPage";
 import DetailsPage from "./pages/DetailsPage";
-import SearchLoader from "./pages/search/SearchLoader";
+import searchLoader from "./pages/search/searchLoader";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
       {
         path: "/search",
         element: <SearchPage />,
-        loader: SearchLoader,
+        loader: searchLoader,
       },
       {
         path: "/packages/:name",

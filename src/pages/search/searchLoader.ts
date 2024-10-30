@@ -1,7 +1,7 @@
 import { LoaderFunctionArgs } from "react-router-dom";
 import { fetchPackages } from "../../api/queries/fetchPackages";
 
-async function SearchLoader({
+async function searchLoader({
   request,
 }: LoaderFunctionArgs<Request>): Promise<PackageSummary[]> {
   const { searchParams } = new URL(request.url);
@@ -24,4 +24,4 @@ async function SearchLoader({
   return summary;
 }
 
-export default SearchLoader;
+export default searchLoader;
