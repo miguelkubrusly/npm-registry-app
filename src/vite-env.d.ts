@@ -1,14 +1,14 @@
 /// <reference types="vite/client" />
 import {
-  PackageSummary,
-  Package,
-  PackageSearchResult,
+  PackageSummary as ImportedPackageSummary,
+  Package as ImportedPackage,
+  PackageSearchResult as ImportedPackageSearchResult,
 } from "./api/type/PackageTypes";
 
 declare global {
-  type PackageSummary = PackageSummary;
-  type Package = Package;
-  type PackageSearchResult = PackageSearchResult;
+  type PackageSummary = ImportedPackageSummary;
+  type Package = ImportedPackage;
+  type PackageSearchResult = ImportedPackageSearchResult;
 }
 
 export {};
