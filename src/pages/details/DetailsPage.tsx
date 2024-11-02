@@ -1,10 +1,5 @@
 import { useLoaderData } from "react-router-dom";
-import { fetchPackageInfo } from "../../api/queries/fetchPackageInfo";
-import { detailsLoader } from "./detailsLoader";
-
-// interface DetailsPageProps {
-//   packageName: string;
-// }
+import ReadmeDisplay from "../../components/ReadmeDisplay";
 
 interface DetailsLoaderData {
   details: PackageInfoSummary;
@@ -13,6 +8,16 @@ interface DetailsLoaderData {
 function DetailsPage() {
   const { details } = useLoaderData() as DetailsLoaderData;
   const { name, description, readme, author, license, repository } = details;
+
+  const renderedReadme = readme && (
+    <div>
+      <h3 className="text-lg font-bold">README.md</h3>
+      <div className="p-3 bg-gray-200 rounded">
+        <ReadmeDisplay readmeContent={readme} />
+      </div>
+    </div>
+  );
+
   return (
     <div className="space-y-4">
       <h1 className="text-3xl font-bold my-4">{name}</h1>
@@ -34,10 +39,7 @@ function DetailsPage() {
         <h3 className="text-lg font-bold">Repository</h3>
         <div className="p-3 bg-gray-200 rounded">{repository.url}</div>
       </div>
-      <div>
-        <h3 className="text-lg font-bold">README.md</h3>
-        <div className="p-3 bg-gray-200 rounded">{readme}</div>
-      </div>
+      {renderedReadme}
     </div>
   );
 }
