@@ -11,6 +11,10 @@ declare global {
     author: PackageAuthor;
     maintainers: PackageAuthor[];
     license: string;
+    repository: {
+      type: string;
+      url: string;
+    };
   }
 
   interface PackageInfo extends PackageInfoSummary {
@@ -18,10 +22,6 @@ declare global {
       latest: string;
     };
     readmeFilename: string;
-    repository: {
-      type: string;
-      url: string;
-    };
     time: {
       modified: string;
       created: string;

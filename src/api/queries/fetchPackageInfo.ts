@@ -10,6 +10,7 @@ export async function fetchPackageInfo(
       author,
       maintainers,
       license,
+      repository,
     }: PackageInfo = await res.json();
     return {
       name,
@@ -18,6 +19,7 @@ export async function fetchPackageInfo(
       author,
       maintainers,
       license,
+      repository,
     };
   } catch {
     throw new Error(
