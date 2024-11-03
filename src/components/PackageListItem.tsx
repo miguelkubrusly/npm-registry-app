@@ -19,13 +19,13 @@ function PackageListItem({ pkg }: PackageListItemProps) {
   return (
     <div className="border p-4 rounded flex justify-between items-center">
       <div className="flex flex-col gap-2">
-        <Link to={`/packages/${pkg.name}`}>{pkg.name}</Link>
+        <Link to={`/packages/${encodeURIComponent(pkg.name)}`}>{pkg.name}</Link>
         <p className="text-sm text-gray-500">{pkg.description}</p>
       </div>
       <div className="flex gap-1">{renderedKeywords}</div>
       <div className="mr-6">
         <Link
-          to={`/packages/${pkg.name}`}
+          to={`/packages/${encodeURIComponent(pkg.name)}`}
           className="py-2 px-3 rounded bg-black text-white text-lg"
         >
           View

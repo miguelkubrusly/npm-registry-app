@@ -32,7 +32,7 @@ function DetailsPage() {
       <div>
         <h3 className="text-lg font-bold">Author</h3>
         <div className="p-3 bg-gray-200 rounded">
-          {author.name} / {author.email}
+          {author?.name} / {author?.email}
         </div>
       </div>
       <div>

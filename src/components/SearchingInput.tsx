@@ -12,16 +12,17 @@ function SearchInput() {
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    nav(`/search?term=${term}`);
+    nav(`/search?term=${encodeURIComponent(term)}`);
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form id="search-term" onSubmit={handleSubmit}>
       <div className="relative">
         <div className="absolute inset-y-0 flex items-center pl-3">
           <VscSearch className="h-5 w-5 text-gray-500" />
         </div>
         <input
+          id="search-term"
           type="text"
           value={term}
           onChange={(e) => {
